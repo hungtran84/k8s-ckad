@@ -94,3 +94,73 @@ docker build -t cidr-to-subnet:latest .
 ```
 
 This command will build the image and tag it as `cidr-to-subnet:latest`
+
+## Step 3: Create a GitHub Personal Access Token (PAT)
+
+1. Go to your GitHub account settings.
+2. Navigate to **Developer settings** > **Personal access tokens** > **Tokens (classic)**.
+3. Click on **Generate new token**.
+4. Provide a note for your token (e.g., "Docker Access Token").
+5. Select the scopes you want to grant this token (at least `write:packages` and `read:packages`).
+6. Click on **Generate token** and copy the token for future use.
+
+![alt text](image.png)
+
+## Step 4: Login to GitHub Container Registry
+
+Use the following command to log in to the GitHub Container Registry:
+
+```bash
+echo <YOUR_GITHUB_PAT> | docker login ghcr.io -u <YOUR_GITHUB_USERNAME> --password-stdin
+```
+
+Replace `<YOUR_GITHUB_PAT>` with your Personal Access Token and `<YOUR_GITHUB_USERNAME>` with your GitHub username.
+
+## Step 5: Tag and Publish the Image to GitHub Container Registry
+
+After building your image, tag it for the GitHub Container Registry and push it:
+
+```bash
+docker tag cidr-to-subnet:latest ghcr.io/<YOUR_GITHUB_USERNAME>/cidr-to-subnet:latest
+docker push ghcr.io/<YOUR_GITHUB_USERNAME>/cidr-to-subnet:latest
+```
+
+### Set the Package Visibility
+
+1. Navigate to the **Packages** section of your public repository.
+2. Find your Docker package (the image you pushed).
+3. Click on the package name, then go to **Package settings**.
+4. Under **Visibility**, select **Public** and save the changes.
+
+
+## Step 6: Run the Docker Container and Test the API Using Play with Docker
+
+1. Go to [Play with Docker](https://labs.play-with-docker.com/).
+2. Click on **Start** to create a new session.
+3. Once your session is ready, open a terminal.
+4. Pull the image from GitHub Container Registry:
+
+   ```bash
+   docker pull ghcr.io/<YOUR_GITHUB_USERNAME>/cidr-to-subnet:latest
+   ```
+5. Run the Docker container in detached mode:
+
+   ```
+   docker run -d -p 5000:5000 ghcr.io/<YOUR_GITHUB_USERNAME>/cidr-to-subnet:latest
+   ```
+
+6. Test the API using `curl`:
+
+   ```
+   curl "http://localhost:5000/cidr-to-subnet?cidr=24"
+   ```
+
+   You should receive a JSON response with the subnet mask:
+
+   ```json
+    {
+      "subnet_mask": "255.255.255.0"
+    }
+   ```
+
+
