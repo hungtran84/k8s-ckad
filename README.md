@@ -10,7 +10,9 @@ Welcome to the CKAD Labs repository! This repository is designed to provide hand
 - [Lab 3: Exploring a Kubernetes Cluster](d0-container-k8s-fundamental/3-exploring-k8s-cluster/README.md)
 
 ### Domain 1: Application Design and Build
-- Placeholder (Labs coming soon)
+- [Lab 1.1: Running and Managing Pods](d1-app-design-build/1_running_and_managing_pods/README.md)
+- [Lab 1.2.2a: Ambassador Pattern](d1-app-design-build/1_running_and_managing_pods/2_multi_containers_pods/2a-ambassador-pattern/README.md)
+- [Lab 1.2.2b: Sidecar Pattern](d1-app-design-build/1_running_and_managing_pods/2_multi_containers_pods/2b-sidecar-pattern/README.md)
 
 ### Domain 2: Application Deployment
 - Placeholder (Labs coming soon)

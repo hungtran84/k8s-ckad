@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-success-pod
+spec:
+  containers:
+  - name: hello-world-success
+    image: busybox
+    command: ['sh', '-c', 'echo "This job succeeded"; exit 0']
+  restartPolicy: OnFailure
+
+--- 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-failure-pod
+spec:
+  containers:
+  - name: hello-world-failure
+    image: busybox
+    command: ['sh', '-c', 'echo "This job succeeded"; exit 1']
+  restartPolicy: OnFailure
