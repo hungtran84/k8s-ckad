@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql-db
+  labels:
+    app: mysql-db
+spec:
+  serviceName: mysql-db  # Points to the headless service
+  replicas: 3  # Set the number of replicas (pods)
+  selector:
+    matchLabels:
+      app: mysql-db
+  template:
+    metadata:
+      labels:
+        app: mysql-db
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        envFrom:
+          - secretRef:
+              name: mysql-db-password  # The secret containing MySQL password
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 50Gi  # Size of the persistent volume
+      storageClassName: standard-pd  # Optional: Define the storage class for GCP Persistent Disks
