@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green
+  labels:
+    app: helloworld
+    role: green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloworld
+      role: green
+  template:
+    metadata:
+      labels:
+        app: helloworld
+        role: green
+    spec:
+      containers:
+        - name: hello-app
+          image: ghcr.io/hungtran84/hello-app:2.0
+          ports:
+            - containerPort: 8080
