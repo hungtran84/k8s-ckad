@@ -31,10 +31,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../base
-  - namespace.yaml
+  - namespace.yaml # add resource
 buildMetadata:
   - managedByLabel
-namespace: dev
+namespace: dev # add transformer
 ```
 
 - The `resources` section references the base configuration and the `namespace.yaml` file.
