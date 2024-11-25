@@ -274,7 +274,7 @@ To access your Kubernetes cluster from Google Cloud Shell using the Control Plan
     Use `scp` to copy the kubeconfig file from your control plane node to the Cloud Shell's configuration directory. Assuming your kubeconfig is located at `/etc/kubernetes/admin.conf` on the CP node, use the following command (replace `<CP_PUBLIC_IP>` with your Control Plane node's public IP):
 
    ```bash
-    gcloud compute scp cp1:~/etc/kubernetes/admin.conf ~/.kube/config --zone asia-southeast1-c
+    gcloud compute scp cp1:~/.kube/config ~/.kube/config --zone asia-southeast1-c
    ```
 
 3. **Retrieve the Internal and Public IP of CP Node**
