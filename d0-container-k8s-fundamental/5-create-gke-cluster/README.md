@@ -100,6 +100,3 @@ gcloud container clusters delete test-cluster --zone asia-southeast1-c --quiet
 ## Conclusion
 
 You have successfully created a test GKE cluster in Google Cloud using Cloud Shell. This setup provides a cost-effective way to learn and explore Kubernetes. Feel free to experiment further with deployments and services as you continue your Kubernetes journey!
-```
-
-This guide includes the specified zone, max nodes, and formatting. Let me know if you need any further adjustments!
