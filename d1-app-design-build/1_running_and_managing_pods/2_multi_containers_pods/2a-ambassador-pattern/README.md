@@ -103,21 +103,13 @@ kubectl apply -f 01-ambassador.yaml
 
 Once both resources are created, you can test the functionality of the ambassador pattern.
 
-#### Testing with a Bare Nginx Pod
+#### Testing with curl
 
 **Port Forwarding service**:
 
 ```bash
 kubectl port-forward service/common-service 8888:80 &
 ```
-
-**Run a Bare Nginx Pod**: Start a bare Nginx pod in the default namespace using the following command:
-
-```bash
-kubectl run nginx-test --image=nginx:alpine -it --rm -- sh
-```
-
-This command will start a pod named `nginx-test` and access to the shell.
 
 **Send Requests Without a User-Agent**: 
 
