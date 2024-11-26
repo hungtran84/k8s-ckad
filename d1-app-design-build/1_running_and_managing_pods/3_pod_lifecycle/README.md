@@ -115,7 +115,7 @@ kubectl get pod
 
 You should see both jobs listed, with the `hello-world-pod-success` job completing successfully and the `hello-world-pod-failure` job failing.
 
-### Step 7: Describe the Jobs for Exit Codes
+### Step 7: Describe the Pod for Exit Codes
 Use `kubectl describe` to check the details of each job, including their completion status and exit codes.
 
 ```bash
@@ -123,10 +123,6 @@ kubectl describe pod hello-world-pod-success
 kubectl describe pod hello-world-pod-failure
 ```
 
-In the output, check for:
-
-- **Completion Status**: The successful job should indicate completion, while the failed job should show an error state.
-- **Exit Code**: The successful job should have an exit code of 0, while the failed job should have an exit code of 1.
 
 ### OnFailure Restart Policy Behavior
 1. **Initial Pod Creation**: 
