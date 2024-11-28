@@ -107,8 +107,8 @@ kubectl get deployment deprecated-deployment -o yaml | grep apiVersion
 1. Install `kubent` using the following commands:
 
    ```bash
-   curl -LO https://github.com/doitintl/kube-no-trouble/releases/download/v0.7.3/kubent-0.7.3-linux-amd64.tar.gz
-   tar -xvzf kubent-0.7.3-linux-amd64.tar.gz
+   curl -LO https://github.com/doitintl/kube-no-trouble/releases/download/0.7.3/kubent-0.7.3-linux-amd64.tar.gz
+   tar -xvf kubent-0.7.3-linux-amd64.tar.gz
    sudo mv kubent /usr/local/bin/
    ```
 
