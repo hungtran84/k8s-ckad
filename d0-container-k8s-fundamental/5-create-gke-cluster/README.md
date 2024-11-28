@@ -43,9 +43,9 @@ Create a low-cost GKE cluster using the following command. This command creates 
 ```bash
 gcloud container clusters create test-cluster \
   --zone asia-southeast1-c \
-  --num-nodes 1 \
-  --max-nodes 3 \
-  --machine-type e2-micro \
+  --num-nodes 3 \
+  --max-nodes 6 \
+  --machine-type e2-medium \
   --enable-autoscaling
 ```
 
