@@ -33,7 +33,7 @@
 2. **Create a Kustomization in the Base Directory**  
    Move to the base directory and create a Kustomization file:
    ```bash
-   cd before/base
+   cd base
    kustomize create --autodetect
    ```
 
